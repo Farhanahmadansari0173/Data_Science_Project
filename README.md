@@ -1,4 +1,4 @@
-# 📊 E-commerce Analytics: Customer Segmentation & A/B Testing
+# 📊 Retail Analytics: Unsupervised Customer Segmentation & A/B Testing
 
 Welcome to my Data Science project! My name is **Farhan Ahmad Ansari**, and I built this repository to showcase advanced Unsupervised Machine Learning, Dimensionality Reduction, and Statistical Simulations.
 
