@@ -1,0 +1,83 @@
+=== Advanced Data Science Pipeline ===
+1. Creating Python Virtual Environment...
+2. Installing requirements...
+Requirement already satisfied: pandas>=2.0.0 in ./.venv/lib/python3.13/site-packages (from -r requirements.txt (line 1)) (3.0.5)
+Requirement already satisfied: numpy>=1.24.0 in ./.venv/lib/python3.13/site-packages (from -r requirements.txt (line 2)) (2.5.1)
+Requirement already satisfied: scipy>=1.10.0 in ./.venv/lib/python3.13/site-packages (from -r requirements.txt (line 3)) (1.18.0)
+Collecting scikit-learn>=1.3.0 (from -r requirements.txt (line 4))
+  Using cached scikit_learn-1.9.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (11 kB)
+Collecting matplotlib>=3.8.0 (from -r requirements.txt (line 5))
+  Using cached matplotlib-3.11.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (80 kB)
+Collecting seaborn>=0.13.0 (from -r requirements.txt (line 6))
+  Using cached seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
+Requirement already satisfied: python-dateutil>=2.8.2 in ./.venv/lib/python3.13/site-packages (from pandas>=2.0.0->-r requirements.txt (line 1)) (2.9.0.post0)
+Collecting joblib>=1.4.0 (from scikit-learn>=1.3.0->-r requirements.txt (line 4))
+  Using cached joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+Requirement already satisfied: narwhals>=2.0.1 in ./.venv/lib/python3.13/site-packages (from scikit-learn>=1.3.0->-r requirements.txt (line 4)) (2.24.0)
+Collecting threadpoolctl>=3.5.0 (from scikit-learn>=1.3.0->-r requirements.txt (line 4))
+  Using cached threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+Collecting contourpy>=1.0.1 (from matplotlib>=3.8.0->-r requirements.txt (line 5))
+  Using cached contourpy-1.3.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+Collecting cycler>=0.10 (from matplotlib>=3.8.0->-r requirements.txt (line 5))
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.28.2 (from matplotlib>=3.8.0->-r requirements.txt (line 5))
+  Using cached fonttools-4.63.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (118 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib>=3.8.0->-r requirements.txt (line 5))
+  Using cached kiwisolver-1.5.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.1 kB)
+Requirement already satisfied: packaging>=20.0 in ./.venv/lib/python3.13/site-packages (from matplotlib>=3.8.0->-r requirements.txt (line 5)) (26.3)
+Requirement already satisfied: pillow>=9 in ./.venv/lib/python3.13/site-packages (from matplotlib>=3.8.0->-r requirements.txt (line 5)) (12.3.0)
+Collecting pyparsing>=3 (from matplotlib>=3.8.0->-r requirements.txt (line 5))
+  Using cached pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+Requirement already satisfied: six>=1.5 in ./.venv/lib/python3.13/site-packages (from python-dateutil>=2.8.2->pandas>=2.0.0->-r requirements.txt (line 1)) (1.17.0)
+Using cached scikit_learn-1.9.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.1 MB)
+Using cached matplotlib-3.11.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (10.0 MB)
+Using cached seaborn-0.13.2-py3-none-any.whl (294 kB)
+Using cached contourpy-1.3.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (362 kB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Using cached fonttools-4.63.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.0 MB)
+Using cached joblib-1.5.3-py3-none-any.whl (309 kB)
+Using cached kiwisolver-1.5.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)
+Using cached pyparsing-3.3.2-py3-none-any.whl (122 kB)
+Using cached threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+Installing collected packages: threadpoolctl, pyparsing, kiwisolver, joblib, fonttools, cycler, contourpy, scikit-learn, matplotlib, seaborn
+
+Successfully installed contourpy-1.3.3 cycler-0.12.1 fonttools-4.63.0 joblib-1.5.3 kiwisolver-1.5.0 matplotlib-3.11.1 pyparsing-3.3.2 scikit-learn-1.9.0 seaborn-0.13.2 threadpoolctl-3.6.0
+
+[notice] A new release of pip is available: 25.3 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+3. Generating Synthetic E-commerce Data...
+Generating synthetic customer transactions...
+Saved 20000 transactions to data/raw/transactions.csv
+Generating A/B test results (Control vs Variant)...
+Saved 10000 A/B test logs to data/raw/ab_test_results.csv
+4. Running ETL Pipeline...
+Running ETL Pipeline for RFM Calculation...
+ETL completed! Saved raw RFM profiles for 4907 customers to data/processed/rfm_data.csv
+5. Performing Unsupervised ML (K-Means & PCA)...
+/home/nafees/DS-Project/scripts/3_customer_clustering.py:54: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.boxplot(x='Cluster', y='Recency', data=rfm, ax=axes[0], palette='Set2')
+/home/nafees/DS-Project/scripts/3_customer_clustering.py:55: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.boxplot(x='Cluster', y='Frequency', data=rfm, ax=axes[1], palette='Set2')
+/home/nafees/DS-Project/scripts/3_customer_clustering.py:56: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.boxplot(x='Cluster', y='Monetary', data=rfm, ax=axes[2], palette='Set2')
+Running Unsupervised ML (K-Means Clustering)...
+Applying PCA for dimensionality reduction...
+Unsupervised ML complete. Saved clustering figures.
+6. Performing Cohort Analysis...
+Running Cohort Analysis...
+Cohort Analysis complete. Saved heatmap.
+7. Running A/B Test Bootstrapping...
+Running Statistical Bootstrapping for A/B Test...
+Bootstrapping complete.
+Mean Revenue Lift: $1.63
+95% Confidence Interval: [$0.97, $2.28]
+=== Pipeline Completed Successfully! ===
