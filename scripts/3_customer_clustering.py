@@ -23,6 +23,13 @@ def run_clustering():
     
     rfm = pd.read_csv(os.path.join(PROCESSED_DIR, "rfm_data.csv"))
     
+    # 0. Generate Correlation Matrix Heatmap
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(rfm[['Recency', 'Frequency', 'Monetary']].corr(), annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+    plt.title('RFM Feature Correlation Matrix')
+    plt.savefig(os.path.join(FIGURES_DIR, "rfm_correlation_matrix.png"), dpi=300)
+    plt.close()
+    
     # We must scale the data because Monetary is in hundreds but Frequency is single digits
     scaler = StandardScaler()
     rfm_scaled = scaler.fit_transform(rfm[['Recency', 'Frequency', 'Monetary']])
@@ -36,7 +43,7 @@ def run_clustering():
         inertia.append(kmeans.inertia_)
         
     plt.figure(figsize=(8, 5))
-    plt.plot(K_range, inertia, marker='o')
+    plt.plot(K_range, inertia, marker='o', color='purple')
     plt.title('Elbow Method For Optimal K')
     plt.xlabel('Number of Clusters (K)')
     plt.ylabel('Inertia (Sum of Squared Distances)')
@@ -51,9 +58,9 @@ def run_clustering():
     
     # 2. Visualize the RFM distributions across clusters
     fig, axes = plt.subplots(1, 3, figsize=(18, 5))
-    sns.boxplot(x='Cluster', y='Recency', data=rfm, ax=axes[0], palette='Set2')
-    sns.boxplot(x='Cluster', y='Frequency', data=rfm, ax=axes[1], palette='Set2')
-    sns.boxplot(x='Cluster', y='Monetary', data=rfm, ax=axes[2], palette='Set2')
+    sns.boxplot(x='Cluster', y='Recency', hue='Cluster', data=rfm, ax=axes[0], palette='Set2', legend=False)
+    sns.boxplot(x='Cluster', y='Frequency', hue='Cluster', data=rfm, ax=axes[1], palette='Set2', legend=False)
+    sns.boxplot(x='Cluster', y='Monetary', hue='Cluster', data=rfm, ax=axes[2], palette='Set2', legend=False)
     plt.suptitle('RFM Distribution by K-Means Cluster')
     plt.savefig(os.path.join(FIGURES_DIR, "cluster_rfm_boxplots.png"), dpi=300)
     plt.close()
